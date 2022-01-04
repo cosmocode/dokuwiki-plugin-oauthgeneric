@@ -32,6 +32,6 @@ class Generic extends AbstractOAuth2Base
     {
         $plugin = plugin_load('helper', 'oauthgeneric');
 
-        return $plugin->getConf('authmethod');
+        return (int) $plugin->getConf('authmethod');
     }
 }
