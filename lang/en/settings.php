@@ -14,9 +14,9 @@ $lang['authmethod'] = 'Authorization method used when talking to the user API';
 $lang['scopes'] = 'Scopes to request (comma separated)';
 
 $lang['json-user'] = 'Access to the username in dot notation';
-$lang['json-name'] = 'Access to the username in dot notation';
-$lang['json-mail'] = 'Access to the username in dot notation';
-$lang['json-grps'] = 'Access to the username in dot notation';
+$lang['json-name'] = 'Access to the full name in dot notation';
+$lang['json-mail'] = 'Access to the user email in dot notation';
+$lang['json-grps'] = 'Access to the user groups in dot notation';
 
 $lang['label'] = 'Label to display on the login button';
 $lang['color'] = 'Color to use with the login button';
