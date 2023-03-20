@@ -10,6 +10,10 @@ use OAuth\Common\Http\Uri\Uri;
  */
 class Generic extends AbstractOAuth2Base
 {
+    /** @inheritdoc */
+    public function needsStateParameterInAuthUrl() {
+        return true;
+    }
 
     /** @inheritdoc */
     public function getAuthorizationEndpoint()
