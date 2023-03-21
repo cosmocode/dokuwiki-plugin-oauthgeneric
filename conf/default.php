@@ -11,6 +11,7 @@ $conf['tokenurl'] = '';
 $conf['userurl'] = '';
 $conf['authmethod'] = 0;
 $conf['scopes'] = '';
+$conf['needs-state'] = 0;
 
 $conf['json-user'] = '';
 $conf['json-name'] = '';

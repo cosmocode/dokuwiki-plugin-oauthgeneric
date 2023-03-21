@@ -12,7 +12,8 @@ class Generic extends AbstractOAuth2Base
 {
     /** @inheritdoc */
     public function needsStateParameterInAuthUrl() {
-        return true;
+        $plugin = plugin_load('helper', 'oauthgeneric');
+        return 0 !== $plugin->getConf('needs-state');
     }
 
     /** @inheritdoc */
