@@ -10,6 +10,11 @@ use OAuth\Common\Http\Uri\Uri;
  */
 class Generic extends AbstractOAuth2Base
 {
+    /** @inheritdoc */
+    public function needsStateParameterInAuthUrl() {
+        $plugin = plugin_load('helper', 'oauthgeneric');
+        return 0 !== $plugin->getConf('needs-state');
+    }
 
     /** @inheritdoc */
     public function getAuthorizationEndpoint()

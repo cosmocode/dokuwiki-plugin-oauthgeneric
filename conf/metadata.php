@@ -11,6 +11,7 @@ $meta['tokenurl'] = array('string');
 $meta['userurl'] = array('string');
 $meta['authmethod'] = array('multichoice', '_choices' => [0, 1, 6, 2, 3, 4, 5]);
 $meta['scopes'] = array('array');
+$meta['needs-state'] = array('onoff');
 
 $meta['json-user'] = array('string');
 $meta['json-name'] = array('string');

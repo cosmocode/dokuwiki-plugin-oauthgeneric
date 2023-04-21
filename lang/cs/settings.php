@@ -11,8 +11,8 @@ $lang['authurl'] = 'URL pro autentizaci';
 $lang['tokenurl'] = 'URL pro získání tokenu';
 $lang['userurl'] = 'Relativní URL pro získání uživatelských informací z API (musí vracet JSON data autentizovaného uživatele)';
 $lang['authmethod'] = 'Autorizační metoda pro získání uživatelských informací z API';
-$lang['scopes'] = 'Scopes to request (comma separated)';
 $lang['scopes'] = 'Požadovaná oprávnění (scopes, oddělená čárkou)';
+$lang['needs-state'] = 'Poskytovatel potřebuje a poskytuje parametr pro přesměrování na callback URL';
 
 $lang['json-user'] = 'Objektová cesta k uživatelskému jménu (tečková notace)';
 $lang['json-name'] = 'Objektová cesta k celému jménu uživatele (tečkovánotace)';

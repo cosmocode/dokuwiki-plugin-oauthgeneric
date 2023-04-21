@@ -12,6 +12,7 @@ $lang['tokenurl'] = 'URL to the token endpoint';
 $lang['userurl'] = 'URL to the user info API endpoint (must return JSON about the authenticated user)';
 $lang['authmethod'] = 'Authorization method used when talking to the user API';
 $lang['scopes'] = 'Scopes to request (comma separated)';
+$lang['needs-state'] = 'The provider needs and supplies a state parameter in the callback URL.';
 
 $lang['json-user'] = 'Access to the username in dot notation';
 $lang['json-name'] = 'Access to the full name in dot notation';
