@@ -36,8 +36,8 @@ class action_plugin_oauthgeneric extends Adapter
 
         // type fixes
         if (is_array($user)) $user = array_shift($user);
-        if (is_array($name)) $user = array_shift($name);
-        if (is_array($mail)) $user = array_shift($mail);
+        if (is_array($name)) $name = array_shift($name);
+        if (is_array($mail)) $mail = array_shift($mail);
         if (!is_array($grps)) {
             $grps = explode(',', $grps);
             $grps = array_map('trim', $grps);
