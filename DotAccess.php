@@ -20,6 +20,8 @@ class DotAccess
      */
     public static function get($array, $key, $default = null)
     {
+        $key = trim($key, '.');
+
         if (!static::accessible($array)) {
             return $default;
         }

@@ -29,10 +29,18 @@ class action_plugin_oauthgeneric extends Adapter
         $result = json_decode($raw, true);
         if (!$result) throw new OAuthException('Failed to parse data from userurl');
 
+        $grpdots = sexplode('[]', $this->getConf('json-grps'), 2);
         $user = DotAccess::get($result, $this->getConf('json-user'), '');
         $name = DotAccess::get($result, $this->getConf('json-name'), '');
         $mail = DotAccess::get($result, $this->getConf('json-mail'), '');
-        $grps = DotAccess::get($result, $this->getConf('json-grps'), []);
+        $grps = DotAccess::get($result, $grpdots[0], []);
+
+        // use dot notation on each group
+        if(is_array($grps) && $grpdots[1]) {
+            $grps = array_map(function($grp) use ($grpdots) {
+                return DotAccess::get($grp, $grpdots[1], '');
+            }, $grps);
+        }
 
         // type fixes
         if (is_array($user)) $user = array_shift($user);
