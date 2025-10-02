@@ -9,6 +9,7 @@ $meta['secret'] = array('password');
 $meta['authurl'] = array('string');
 $meta['tokenurl'] = array('string');
 $meta['userurl'] = array('string');
+$meta['logouturl'] = array('string');
 $meta['authmethod'] = array('multichoice', '_choices' => [0, 1, 6, 2, 3, 4, 5]);
 $meta['scopes'] = array('array');
 $meta['needs-state'] = array('onoff');

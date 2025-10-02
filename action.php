@@ -36,8 +36,8 @@ class action_plugin_oauthgeneric extends Adapter
         $grps = DotAccess::get($result, $grpdots[0], []);
 
         // use dot notation on each group
-        if(is_array($grps) && $grpdots[1]) {
-            $grps = array_map(function($grp) use ($grpdots) {
+        if (is_array($grps) && $grpdots[1]) {
+            $grps = array_map(function ($grp) use ($grpdots) {
                 return DotAccess::get($grp, $grpdots[1], '');
             }, $grps);
         }
@@ -67,6 +67,41 @@ class action_plugin_oauthgeneric extends Adapter
 
         return compact('user', 'name', 'mail', 'grps');
     }
+
+    /** @inheritdoc */
+    public function logout()
+    {
+        $url = $this->getConf('logouturl');
+        if (!$url) {
+            parent::logout();
+            return;
+        }
+
+        // add ID token if available
+        $oauth = $this->getOAuthService();
+        $token = $oauth->getStorage()->retrieveAccessToken($oauth->service());
+        $params = $token->getExtraParams();
+        if (isset($params['id_token'])) {
+            $url .= (strpos($url, '?') === false ? '?' : '&') . 'id_token_hint=' . urlencode($params['id_token']);
+        }
+
+        // redirect back to dokuwiki after logout
+        /** @var helper_plugin_oauth $helper */
+        $helper = plugin_load('helper', 'oauth');
+        $redir = $helper->redirectURI();
+        $url .= (strpos($url, '?') === false ? '?' : '&') . 'post_logout_redirect_uri=' . urlencode($redir);
+
+        // add state if needed (we don't check it, but some providers require it)
+        if ($this->getConf('needs-state')) {
+            $state = bin2hex(random_bytes(16));
+            $url .= (strpos($url, '?') === false ? '?' : '&') . 'state=' . urlencode($state);
+        }
+
+        parent::logout();
+        send_redirect($url);
+        exit;
+    }
+
 
     /** @inheritdoc */
     public function getScopes()

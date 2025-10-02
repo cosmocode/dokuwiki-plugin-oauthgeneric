@@ -9,6 +9,7 @@ $lang['key'] = 'The Application UID';
 $lang['secret'] = 'The Application Secret';
 $lang['authurl'] = 'URL to the authentication endpoint';
 $lang['tokenurl'] = 'URL to the token endpoint';
+$lang['logouturl'] = 'URL to log the user out at the IdP. Users will be redirected there on logout. (optional)';
 $lang['userurl'] = 'URL to the user info API endpoint (must return JSON about the authenticated user)';
 $lang['authmethod'] = 'Authorization method used when talking to the user API';
 $lang['scopes'] = 'Scopes to request (comma separated)';

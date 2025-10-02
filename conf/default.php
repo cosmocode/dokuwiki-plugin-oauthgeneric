@@ -9,6 +9,7 @@ $conf['secret'] = '';
 $conf['authurl'] = '';
 $conf['tokenurl'] = '';
 $conf['userurl'] = '';
+$conf['logouturl'] = '';
 $conf['authmethod'] = 0;
 $conf['scopes'] = '';
 $conf['needs-state'] = 0;
